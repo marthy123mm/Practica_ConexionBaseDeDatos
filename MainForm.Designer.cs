@@ -53,6 +53,7 @@ namespace Agenda
 		private System.Windows.Forms.Button btnEliminarC;
 		private System.Windows.Forms.DataGridView dataVContactos;
 		private System.Windows.Forms.ErrorProvider errorNotFound;
+		private System.Windows.Forms.Label lbCargando;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -116,6 +117,7 @@ namespace Agenda
 			this.panelVer = new System.Windows.Forms.Panel();
 			this.dataVContactos = new System.Windows.Forms.DataGridView();
 			this.errorNotFound = new System.Windows.Forms.ErrorProvider(this.components);
+			this.lbCargando = new System.Windows.Forms.Label();
 			this.panelAgregar.SuspendLayout();
 			this.panelModificar.SuspendLayout();
 			this.panelEliminar.SuspendLayout();
@@ -504,11 +506,24 @@ namespace Agenda
 			this.errorNotFound.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 			this.errorNotFound.ContainerControl = this;
 			// 
+			// lbCargando
+			// 
+			this.lbCargando.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+			this.lbCargando.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbCargando.Location = new System.Drawing.Point(30, 130);
+			this.lbCargando.Name = "lbCargando";
+			this.lbCargando.Size = new System.Drawing.Size(695, 235);
+			this.lbCargando.TabIndex = 20;
+			this.lbCargando.Text = "Cargando...";
+			this.lbCargando.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbCargando.Visible = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(753, 397);
+			this.Controls.Add(this.lbCargando);
 			this.Controls.Add(this.panelVer);
 			this.Controls.Add(this.panelEliminar);
 			this.Controls.Add(this.panelModificar);

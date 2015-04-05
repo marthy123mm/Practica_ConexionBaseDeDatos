@@ -58,6 +58,8 @@ namespace Agenda
 		}
 		void BtnVerClick(object sender, EventArgs e)
 		{
+			lbCargando.Show();
+			
 			panelAgregar.Enabled=false;
 			panelAgregar.Hide();
 			
@@ -70,9 +72,9 @@ namespace Agenda
 			panelVer.Enabled=true;
 			panelVer.Show();
 			
-			
 			dataVContactos.DataSource = mariaDB.verContactos();
 			dataVContactos.DataMember = "contactos";
+			lbCargando.Dispose();
 			
 				
 			
