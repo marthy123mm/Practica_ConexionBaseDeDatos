@@ -116,11 +116,11 @@ namespace Agenda
 				errores++;
 			}
 			
-			if (tbApellidos.Text.Length >= 10 && tbApellidos.Text.Length <=30){
+			if (tbApellidos.Text.Length >= 5 && tbApellidos.Text.Length <=30){
 				contactoNuevo.setApellidos(tbApellidos.Text);
 			}
 			else{
-				errorNotFound.SetError(tbApellidos," Los apellidos contener entre 10 y 30 caracteres");
+				errorNotFound.SetError(tbApellidos," Los apellidos contener entre 5 y 30 caracteres");
 				errores++;
 			}
 			
@@ -209,7 +209,7 @@ namespace Agenda
 				errores++;
 			}
 			
-			if(tbApellidosM.Text.Length >= 10 && tbApellidosM.Text.Length <= 30){
+			if(tbApellidosM.Text.Length >= 5 && tbApellidosM.Text.Length <= 30){
 				contactoMo.setApellidos(tbApellidosM.Text);	
 			}
 			else {
