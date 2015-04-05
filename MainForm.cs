@@ -1,7 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Agenda
@@ -17,6 +15,7 @@ namespace Agenda
 			//
 			InitializeComponent();
 			mariaDB= new MyConexion();
+			this.
 		}
 		void BtnAgregarClick(object sender, EventArgs e)
 		{
