@@ -133,6 +133,7 @@ namespace Agenda
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(64, 64);
 			this.btnAgregar.TabIndex = 0;
+			this.btnAgregar.Tag = "";
 			this.btnAgregar.UseVisualStyleBackColor = false;
 			this.btnAgregar.Click += new System.EventHandler(this.BtnAgregarClick);
 			// 
@@ -151,7 +152,6 @@ namespace Agenda
 			// btnVer
 			// 
 			this.btnVer.BackColor = System.Drawing.Color.PaleTurquoise;
-			this.btnVer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.btnVer.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnVer.FlatAppearance.BorderColor = System.Drawing.Color.White;
 			this.btnVer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -178,7 +178,7 @@ namespace Agenda
 			// 
 			// ldescripcion
 			// 
-			this.ldescripcion.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ldescripcion.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold);
 			this.ldescripcion.Location = new System.Drawing.Point(319, 16);
 			this.ldescripcion.Name = "ldescripcion";
 			this.ldescripcion.Size = new System.Drawing.Size(121, 26);
@@ -518,6 +518,8 @@ namespace Agenda
 			this.Controls.Add(this.btnVer);
 			this.Controls.Add(this.btnMofificar);
 			this.Controls.Add(this.btnAgregar);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.Text = "Agenda";
 			this.panelAgregar.ResumeLayout(false);
