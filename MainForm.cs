@@ -101,22 +101,22 @@ namespace Agenda
 		}
 		void BtnAgregarListoClick(object sender, EventArgs e)
 		{
-			int errores=0;
+			int errores = 0;
 			errorNotFound.Dispose();
 			
-			Contacto contactoNuevo=new Contacto();
+			Contacto contactoNuevo = new Contacto();
 			
 			contactoNuevo.setId(mariaDB.asingarID());
 			
-			if (tbNombre.Text.Length>0 && tbNombre.Text.Length<30){
+			if (tbNombre.Text.Length >= 5 && tbNombre.Text.Length <= 20){
 				contactoNuevo.setNombre(tbNombre.Text);
 			}
 			else {
-				errorNotFound.SetError(tbNombre,"El nombre debe tener entre 10 y 20 caracteres");
+				errorNotFound.SetError(tbNombre,"El nombre debe tener entre 5 y 20 caracteres");
 				errores++;
 			}
 			
-			if (tbApellidos.Text.Length>0 && tbApellidos.Text.Length<30){
+			if (tbApellidos.Text.Length >= 10 && tbApellidos.Text.Length <=30){
 				contactoNuevo.setApellidos(tbApellidos.Text);
 			}
 			else{
@@ -124,7 +124,7 @@ namespace Agenda
 				errores++;
 			}
 			
-			if (tbTelefono.Text.Length>0 && tbTelefono.Text.Length<=8){
+			if (tbTelefono.Text.Length >= 0 && tbTelefono.Text.Length <= 8){
 				try{
 					contactoNuevo.setTelefono(Int64.Parse(tbTelefono.Text));
 				}
@@ -140,15 +140,15 @@ namespace Agenda
 				errores++;
 			}
 			
-			if (tbDomicilio.Text.Length>0 && tbDomicilio.Text.Length<30){
+			if (tbDomicilio.Text.Length >= 5 && tbDomicilio.Text.Length <= 30){
 				contactoNuevo.setDomicilio(tbDomicilio.Text);
 			}
 			else {
-				errorNotFound.SetError(tbDomicilio," El domicilio debe contener entre 10 y 30 caracteres");
+				errorNotFound.SetError(tbDomicilio," El domicilio debe contener entre 5 y 30 caracteres");
 				errores++;
 			}
 			
-			if(tbEmail.Text.Length>0 && tbEmail.Text.Length<30){
+			if(tbEmail.Text.Length >= 10 && tbEmail.Text.Length <= 30){
 				contactoNuevo.setEmail(tbEmail.Text);
 			}
 			
@@ -201,7 +201,7 @@ namespace Agenda
 				errores++;
 			}
 			
-			if (tbNombreM.Text.Length > 0 && tbNombreM.Text.Length <=20){
+			if (tbNombreM.Text.Length >= 5 && tbNombreM.Text.Length <= 20){
 				contactoMo.setNombre(tbNombreM.Text);
 			}
 			else {
@@ -209,7 +209,7 @@ namespace Agenda
 				errores++;
 			}
 			
-			if(tbApellidosM.Text.Length > 0 && tbApellidosM.Text.Length <=30){
+			if(tbApellidosM.Text.Length >= 10 && tbApellidosM.Text.Length <= 30){
 				contactoMo.setApellidos(tbApellidosM.Text);	
 			}
 			else {
@@ -217,10 +217,35 @@ namespace Agenda
 				errores++;
 			}
 			
+			if (tbTelefonoM.Text.Length >= 0 && tbTelefonoM.Text.Length <= 8){
+				try{
+					contactoMo.setTelefono(Int64.Parse(tbTelefonoM.Text));
+				}catch (Exception){
+					errorNotFound.SetError(tbTelefonoM," Debes Ingresar Solo Numeros");
+					errores++;
+				}
+			}
+			else{
+				errorNotFound.SetError(tbTelefonoM, "el telefono contener solo de 0 a 8 numeros ");
+				errores++;
+			}
 			
-			contactoMo.setTelefono(Int64.Parse(tbTelefonoM.Text));
-			contactoMo.setDomicilio(tbDomiclioM.Text);
-			contactoMo.setEmail(tbEmailM.Text);
+			if (tbDomiclioM.Text.Length >= 5 && tbDomiclioM.Text.Length <= 30){
+				contactoMo.setDomicilio(tbDomiclioM.Text);
+			}
+			else{
+				errorNotFound.SetError(tbDomiclioM, "El domicilio debe contener entre 5 y 30 caracteres");
+				errores++;
+			}
+			
+			if (tbEmailM.Text.Length >= 10 && tbEmailM.Text.Length <= 30){
+				contactoMo.setEmail(tbEmailM.Text);
+			}
+			else{
+				errorNotFound.SetError(tbEmailM, "El email debe contener entre 10 y 30 caracteres");
+				errores++;
+			}
+			
 			
 			if(errores == 0){
 				mariaDB.actualizarContactoPorId(tbIdM.Text , contactoMo);
